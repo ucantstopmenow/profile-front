@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currículo - Henrique Pimenta Souza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc; /* slate-50 */
+      }
+      .skill-tag {
+        background-color: #e2e8f0; /* slate-200 */
+        color: #1e293b; /* slate-800 */
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        display: inline-block;
+        margin-top: 0.25rem;
+      }
+      .skill-tag:hover {
+        background-color: #0ea5e9; /* sky-500 */
+        color: #ffffff;
+      }
+      .section-title {
+        border-bottom: 2px solid #e2e8f0; /* slate-200 */
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1e293b; /* slate-800 */
+      }
+      .card {
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease-in-out;
+      }
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        stroke-width: 2;
+        margin-right: 0.75rem;
+        color: #475569; /* slate-600 */
+      }
+      .ai-button {
+        background-color: #0ea5e9; /* sky-500 */
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .ai-button:hover {
+        background-color: #0284c7; /* sky-600 */
+      }
+      .ai-button:disabled {
+        background-color: #94a3b8; /* slate-400 */
+        cursor: not-allowed;
+      }
+      .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #0ea5e9;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      /* Modal Styles */
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+      .modal-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        max-width: 90%;
+        width: 700px;
+        max-height: 80vh;
+        overflow-y: auto;
+        transform: scale(0.95);
+        transition: transform 0.3s;
+      }
+      .modal-backdrop.active .modal-content {
+        transform: scale(1);
+      }
+      #analysis-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      #analysis-table th,
+      #analysis-table td {
+        border: 1px solid #e2e8f0;
+        padding: 0.75rem;
+        text-align: left;
+      }
+      #analysis-table th {
+        background-color: #f1f5f9;
+      }
+    </style>
+  </head>
+  <body class="text-slate-700">
+    <!-- Main Container -->
+    <div id="resume-content" class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+      <!-- Header Section -->
+      <header
+        class="flex flex-col md:flex-row items-start md:items-center justify-between mb-10"
+      >
+        <div>
+          <h1 class="text-4xl font-bold text-slate-900">
+            Henrique Pimenta Souza
+          </h1>
+          <p class="text-xl font-medium text-sky-600 mt-1">
+            Python | Automação com IA | Machine Learning | RAG | LLM
+          </p>
+        </div>
+        <div class="mt-6 md:mt-0 text-sm text-right">
+          <a
+            href="mailto:pimenttasouzza02@gmail.com"
+            class="flex items-center justify-end mb-2 group"
+          >
+            <span class="group-hover:text-sky-600"
+              >pimenttasouzza02@gmail.com</span
+            >
+            <svg
+              class="icon ml-2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+          <a
+            href="tel:+5511981104828"
+            class="flex items-center justify-end mb-2 group"
+          >
+            <span class="group-hover:text-sky-600">+55 11 98110-4828</span>
+            <svg
+              class="icon ml-2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/henriquepimentaofc777777777"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-end group"
+          >
+            <span class="group-hover:text-sky-600"
+              >linkedin.com/in/henriquepimentaofc</span
+            >
+            <svg
+              class="icon ml-2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main>
+        <!-- Recruiter AI Section -->
+        <div class="card bg-sky-50 border border-sky-200">
+          <h2 class="section-title !border-sky-200 text-sky-800">
+            Análise de Vaga para Recrutadores
+          </h2>
+          <p class="mb-4 text-sm">
+            Cole os requisitos da vaga abaixo. A IA irá analisar o meu currículo
+            e gerar uma tabela comparativa, indicando o meu alinhamento com cada
+            ponto.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <textarea
+              id="job-requirements"
+              rows="5"
+              class="w-full p-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
+              placeholder="Cole os requisitos da vaga aqui..."
+            ></textarea>
+            <button
+              id="generate-analysis-btn"
+              class="ai-button sm:w-auto w-full"
+            >
+              ✨ Gerar Análise
+              <div id="loader-analysis" class="loader hidden ml-2"></div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="card">
+          <h2 class="section-title">Resumo Profissional</h2>
+          <p class="leading-relaxed">
+            Desenvolvedor Backend orientado a resultados com uma base robusta em
+            Python, FastAPI, PostgreSQL e IA Generativa. Especializado na
+            construção de APIs de alta performance, agentes inteligentes usando
+            LLMs e pipelines RAG. Proficiente em arquitetura de software moderna
+            (DDD, microsserviços), fluxos de trabalho de engenharia de dados e
+            observabilidade em tempo real. Apaixonado por automação com IA,
+            engenharia de prompt e sistemas de backend com capacidades de LLM
+            infundidas.
+          </p>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="card">
+          <h2 class="section-title">Competências Técnicas</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="font-semibold text-slate-800 mb-2">Backend:</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">Python</span
+                ><span class="skill-tag">FastAPI</span
+                ><span class="skill-tag">.NET Core (C#)</span
+                ><span class="skill-tag">Java (Spring Boot)</span
+                ><span class="skill-tag">APIs RESTful</span
+                ><span class="skill-tag">DDD</span
+                ><span class="skill-tag">Estrutura de Dados</span>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-slate-800 mb-2">
+                IA, Automação & Machine Learning:
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">OpenAI</span
+                ><span class="skill-tag">Gemini</span
+                ><span class="skill-tag">LangChain</span
+                ><span class="skill-tag">LangSmith</span
+                ><span class="skill-tag">RAG</span
+                ><span class="skill-tag">PyTorch</span
+                ><span class="skill-tag">Machine Learning</span
+                ><span class="skill-tag">OCR (EasyOCR)</span
+                ><span class="skill-tag">Whisper</span
+                ><span class="skill-tag">Prompt Engineering</span>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-slate-800 mb-2">
+                Bancos de Dados:
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">PostgreSQL</span
+                ><span class="skill-tag">MySQL</span
+                ><span class="skill-tag">MongoDB</span
+                ><span class="skill-tag">SQLite</span>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-slate-800 mb-2">
+                DevOps, Ferramentas & Metodologias:
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">Docker</span
+                ><span class="skill-tag">Git</span
+                ><span class="skill-tag">CI/CD</span
+                ><span class="skill-tag">AWS</span
+                ><span class="skill-tag">Grafana</span
+                ><span class="skill-tag">Prometheus</span
+                ><span class="skill-tag">Scrum</span
+                ><span class="skill-tag">Agile</span
+                ><span class="skill-tag">BPMN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="card">
+          <h2 class="section-title">Experiência Profissional</h2>
+          <div>
+            <div class="flex justify-between items-baseline">
+              <h3 class="font-bold text-lg text-slate-900">
+                Full-Stack Developer
+              </h3>
+              <p class="text-sm font-medium">Ago 2024 - Presente</p>
+            </div>
+            <p class="text-md text-slate-600">
+              Stefanini Brasil - São Paulo, Brasil
+            </p>
+            <ul class="list-disc list-inside mt-4 space-y-2 leading-relaxed">
+              <li>
+                Desenvolvimento de sistemas corporativos escaláveis em Python
+                (FastAPI) e .NET Core com arquitetura modular e testável.
+              </li>
+              <li>
+                Projeto e manutenção de APIs RESTful robustas integrando
+                PostgreSQL e MongoDB.
+              </li>
+              <li>
+                Automação de fluxos de dados de business intelligence usando
+                Prometheus e Grafana.
+              </li>
+              <li>
+                Construção de agentes inteligentes com APIs OpenAI e Gemini via
+                LangChain para sumarização e Q&A.
+              </li>
+              <li>
+                Mapeamento de processos de negócio usando BPMN e produção de
+                diagramas C4 para documentação de arquitetura.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="card">
+          <h2 class="section-title">Projetos Principais</h2>
+          <div class="space-y-8">
+            <div>
+              <h3 class="font-bold text-lg text-slate-900">
+                API de OCR + LLM para Análise Inteligente de Currículos
+              </h3>
+              <p class="leading-relaxed mt-1">
+                API RESTful pronta para produção construída com FastAPI,
+                PaddleOCR e Hugging Face Transformers para extração e
+                interpretação automatizada de currículos. Suporta OCR de
+                PDF/imagem, sumarização baseada em LLM e Q&A, e registra
+                requisições em MongoDB para rastreabilidade. Totalmente
+                containerizada com Docker e implantável via Docker Compose.
+              </p>
+              <div class="mt-3">
+                <h4 class="font-semibold text-sm text-slate-600 mb-2">
+                  Stack Tecnológica:
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="skill-tag">FastAPI</span
+                  ><span class="skill-tag">Python</span
+                  ><span class="skill-tag">PaddleOCR</span
+                  ><span class="skill-tag">Hugging Face</span
+                  ><span class="skill-tag">PyMongo</span
+                  ><span class="skill-tag">MongoDB</span
+                  ><span class="skill-tag">Docker</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-slate-900">
+                API RAG para Análise Curricular
+              </h3>
+              <p class="leading-relaxed mt-1">
+                Desenvolvimento de um backend inteligente usando FastAPI,
+                PostgreSQL e LangChain. O sistema analisa currículos
+                (PDF/imagem), realiza OCR (EasyOCR, Whisper) e aplica pipelines
+                RAG baseados em Gemini para responder a consultas de negócios.
+                Modular e otimizado para confiabilidade e rastreabilidade via
+                LangSmith.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-slate-900">
+                Plataforma de Automação para o Jira
+              </h3>
+              <p class="leading-relaxed mt-1">
+                Construção de um pipeline de backend em tempo real que extrai
+                dados de issues do Jira e transmite insights para o Grafana.
+                Utilizou FastAPI com tarefas assíncronas e PostgreSQL. Integrou
+                o OpenAI Whisper para fluxos de trabalho de transcrição de
+                áudio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Certifications Section -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card mb-0">
+            <h2 class="section-title">Formação</h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-bold text-slate-900">
+                  Análise e Desenvolvimento de Sistemas
+                </h3>
+                <p class="text-slate-600">São Paulo Tech School (SPTech)</p>
+                <p class="text-sm text-slate-500">Jan 2024 - Jun 2026</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">
+                  Técnico em Banco de Dados
+                </h3>
+                <p class="text-slate-600">ETEC Ferraz de Vasconcelos</p>
+                <p class="text-sm text-slate-500">Jan 2020 - Dez 2021</p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-0">
+            <h2 class="section-title">Certificações</h2>
+            <div class="space-y-2">
+              <p class="font-medium text-slate-800">
+                Google Career Certificates:
+              </p>
+              <ul class="list-disc list-inside text-slate-600">
+                <li>Foundations of Project Management</li>
+                <li>Asking Questions to Make Data-Driven Decisions</li>
+                <li>Data Cleaning Techniques</li>
+                <li>Initiating a Successful Project</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="text-center mt-10 p-4 text-sm text-slate-500">
+        <p>Henrique Pimenta Souza &copy; 2024</p>
+      </footer>
+    </div>
+
+    <!-- Modal for AI Generated Content -->
+    <div id="ai-modal" class="modal-backdrop">
+      <div class="modal-content">
+        <h2 id="modal-title" class="text-2xl font-bold text-slate-900 mb-4">
+          Análise de Compatibilidade da Vaga
+        </h2>
+        <div id="modal-body" class="prose max-w-none text-slate-700"></div>
+        <button id="modal-close-btn" class="ai-button mt-6">Fechar</button>
+      </div>
+    </div>
+
+    <script>
+      // --- Elementos do DOM ---
+      const generateAnalysisBtn = document.getElementById(
+        "generate-analysis-btn"
+      );
+      const jobRequirementsTextarea =
+        document.getElementById("job-requirements");
+      const resumeContentDiv = document.getElementById("resume-content");
+      const loaderAnalysis = document.getElementById("loader-analysis");
+
+      // --- Elementos do Modal ---
+      const modal = document.getElementById("ai-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalBody = document.getElementById("modal-body");
+      const modalCloseBtn = document.getElementById("modal-close-btn");
+
+      // --- Função para Chamar a API do Backend ---
+      async function callBackendAPI(requirementsText) { 
+        try {
+          const response = await fetch("https://pimenta-hugging-rag-space.hf.space/analyze", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ requirements: requirementsText }),
+          });
+
+          if (!response.ok) {
+            const errorBody = await response.text();
+            throw new Error(
+              `Erro na API: ${response.statusText} - ${errorBody}`
+            );
+          }
+
+          return await response.json();
+        } catch (error) {
+          return {
+            error: `Erro na comunicação com o backend: ${error.message}`,
+          };
+        }
+      }
+
+      // --- Função de Geração de Análise ---
+      async function generateAnalysis() {
+        const jobRequirements = jobRequirementsTextarea.value;
+        if (!jobRequirements.trim()) {
+          showModalError("Erro", "Por favor, insira os requisitos da vaga.");
+          return;
+        }
+
+        setLoading(generateAnalysisBtn, loaderAnalysis, true);
+
+        const result = await callBackendAPI(jobRequirements);
+        setLoading(generateAnalysisBtn, loaderAnalysis, false);
+
+        if (result.error) {
+          showModalError("Erro na Análise", result.error);
+        } else {
+          displayAnalysisTable(result.analysis);
+        }
+      }
+
+      function displayAnalysisTable(analysisData) {
+        if (!analysisData || !Array.isArray(analysisData)) {
+          showModalError(
+            "Erro de Formato",
+            "A resposta da IA não pôde ser processada. Tente novamente."
+          );
+          return;
+        }
+
+        let tableHTML = `
+                <table id="analysis-table">
+                    <thead>
+                        <tr>
+                            <th class="w-1/12">Status</th>
+                            <th class="w-5/12">Requisito da Vaga</th>
+                            <th class="w-6/12">Justificativa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+        analysisData.forEach((item) => {
+          tableHTML += `
+                    <tr>
+                        <td class="text-center text-2xl">${
+                          item.isMet ? "✅" : "❌"
+                        }</td>
+                        <td>${item.requirement}</td>
+                        <td>${item.justification}</td>
+                    </tr>
+                `;
+        });
+
+        tableHTML += `
+                    </tbody>
+                </table>
+            `;
+
+        modalBody.innerHTML = tableHTML;
+        modal.classList.add("active");
+      }
+
+      // --- Funções Auxiliares (UI) ---
+      function setLoading(button, loader, isLoading) {
+        if (isLoading) {
+          button.disabled = true;
+          loader.classList.remove("hidden");
+        } else {
+          button.disabled = false;
+          loader.classList.add("hidden");
+        }
+      }
+
+      function showModalError(title, bodyText) {
+        modalTitle.textContent = title;
+        modalBody.innerHTML = `<p class="text-red-600">${bodyText}</p>`;
+        modal.classList.add("active");
+      }
+
+      function hideModal() {
+        modal.classList.remove("active");
+      }
+
+      // --- Event Listeners ---
+      generateAnalysisBtn.addEventListener("click", generateAnalysis);
+      modalCloseBtn.addEventListener("click", hideModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          hideModal();
+        }
+      });
+    </script>
+  </body>
+</html>
