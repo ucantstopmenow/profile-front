@@ -169,14 +169,22 @@
 <body class="text-slate-700">
   <!-- Main Container -->
   <div id="resume-content" class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+    <!-- Banner & Profile Section -->
+    <div class="relative mb-10">
+      <img src="banner.png" alt="Banner" class="w-full h-40 object-cover rounded-t-xl shadow-sm" style="min-height:160px;max-height:220px;">
+      <div class="absolute left-1/2 -bottom-12 transform -translate-x-1/2">
+        <img src="profile.jpg" alt="Foto de Perfil" class="w-48 h-48 rounded-full shadow-lg object-cover bg-white" style="object-position:top; border:none;">
+      </div>
+    </div>
+    <div class="h-16"></div>
     <!-- Header Section -->
-    <header class="flex flex-col md:flex-row items-start md:items-center justify-between mb-10">
+    <header class="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 mt-0">
       <div>
         <h1 class="text-4xl font-bold text-slate-900">
           Henrique Pimenta Souza
         </h1>
-        <p class="text-xl font-medium text-sky-600 mt-1">
-          Python | Automação com IA | Machine Learning | RAG | LLM
+        <p class="text-base md:text-lg font-medium text-sky-600 mt-1">
+          Python | LangChain | Machine Learning | RAG 
         </p>
       </div>
       <div class="mt-6 md:mt-0 text-sm text-right">
@@ -231,6 +239,7 @@
             <div id="loader-analysis" class="loader hidden ml-2"></div>
           </button>
         </div>
+        <p class="text-xs text-slate-500 mt-2">Obs: A primeira requisição à IA pode demorar até 2 minutos para ser processada.</p>
       </div>
 
       <!-- Summary Section -->
@@ -238,7 +247,7 @@
         <h2 class="section-title">Resumo Profissional</h2>
         <p class="leading-relaxed">
           Desenvolvedor Backend orientado a resultados com uma base robusta em
-          Python, FastAPI, PostgreSQL e IA Generativa. Especializado na
+          Python, FastAPI, LangChain e IA Generativa. Especializado na
           construção de APIs de alta performance, agentes inteligentes usando
           LLMs e pipelines RAG. Proficiente em arquitetura de software moderna
           (DDD, microsserviços), fluxos de trabalho de engenharia de dados e
@@ -257,9 +266,10 @@
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag">Python</span><span class="skill-tag">FastAPI</span><span class="skill-tag">.NET
                 Core (C#)</span><span class="skill-tag">Java (Spring Boot)</span><span class="skill-tag">APIs
-                RESTful</span><span class="skill-tag">DDD</span><span class="skill-tag">Estrutura de Dados</span>
+                RESTful</span><span class="skill-tag">DDD</span><span class="skill-tag">Estrutura de Dados</span> <span class="skill-tag">Node.js</span>
             </div>
           </div>
+
           <div>
             <h3 class="font-semibold text-slate-800 mb-2">
               IA, Automação & Machine Learning:
@@ -269,9 +279,20 @@
                 class="skill-tag">LangChain</span><span class="skill-tag">LangSmith</span><span
                 class="skill-tag">RAG</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Machine
                 Learning</span><span class="skill-tag">OCR (EasyOCR)</span><span class="skill-tag">Whisper</span><span
-                class="skill-tag">Prompt Engineering</span>
+                class="skill-tag">Prompt Engineering</span> <span class="skill-tag">Pandas</span> <span class="skill-tag">SQLAlchemy</span>
             </div>
           </div>
+          <div>
+            <h3 class="font-semibold text-slate-800 mb-2">
+              Frontend & UI/UX:
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Angular</span><span class="skill-tag">Vue.js</span><span class="skill-tag">Figma</span><span
+                class="skill-tag">TailwindCSS</span><span class="skill-tag">React</span><span
+                class="skill-tag">Next.js</span>
+            </div>
+          </div>
+          
           <div>
             <h3 class="font-semibold text-slate-800 mb-2">
               Bancos de Dados:
@@ -283,13 +304,13 @@
           </div>
           <div>
             <h3 class="font-semibold text-slate-800 mb-2">
-              DevOps, Ferramentas & Metodologias:
+              DevOps & Ferramentas:
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag">Docker</span><span class="skill-tag">Git</span><span
                 class="skill-tag">CI/CD</span><span class="skill-tag">AWS</span><span
-                class="skill-tag">Grafana</span><span class="skill-tag">Prometheus</span><span
-                class="skill-tag">Scrum</span><span class="skill-tag">Agile</span><span class="skill-tag">BPMN</span>
+                class="skill-tag">Grafana</span><span class="skill-tag">Azure</span>
+                <span class="skill-tag">Linux</span><span class="skill-tag">GitLab</span>
             </div>
           </div>
         </div>
